@@ -1,0 +1,94 @@
+:root {
+  /* -- Color tokens -- */
+  --bg-void: #0a0e13;
+  --bg-surface: #121821;
+  --bg-raised: #1a232e;
+  --bg-raised-hover: #212d3a;
+  --border-hairline: #24303c;
+  --border-hairline-soft: #1a232e;
+
+  --text-primary: #e7edf3;
+  --text-secondary: #a7b6c2;
+  --text-muted: #66768a;
+  --text-dim: #465262;
+
+  --accent-signal: #45d9c6;    /* cyan/teal - active scanning, info, normal ops */
+  --accent-signal-dim: #1e5a54;
+  --accent-critical: #ff6b5e;  /* warm red - critical severity */
+  --accent-critical-dim: #4a2622;
+  --accent-warn: #f2b84b;      /* amber - medium/high severity */
+  --accent-warn-dim: #4a3a1c;
+  --accent-ok: #52d17c;        /* green - low severity, contained */
+  --accent-ok-dim: #1c3d28;
+
+  /* -- Type -- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg-void);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(69, 217, 198, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(255, 107, 94, 0.05), transparent 45%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-signal-dim);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hairline);
+  border-radius: 4px;
+}
+
+a, button {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+[tabindex]:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent-signal);
+  outline-offset: 2px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -95,11 +95,4 @@ design doc:
 4. Nothing in `ai_investigation.py`, `risk_scoring.py`, or the frontend needs
    to change — they only know about the `Incident` shape.
 
-## Known simplifications (worth mentioning if this comes up in an interview)
 
-- Incidents are stored in-memory (`main.py`), not PostgreSQL/Elasticsearch yet.
-- MTTD/MTTR on the analytics endpoint are placeholders — real values need
-  timestamped "detected at" / "contained at" events, which don't exist until
-  the correlation engine is real.
-- Risk scoring weights are illustrative constants, not tuned against
-  historical incident outcomes.
